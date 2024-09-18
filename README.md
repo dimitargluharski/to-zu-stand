@@ -1,6 +1,6 @@
 # To-do App
 
-# Features
+## Features
 - dnd items
 - responsive design
 
