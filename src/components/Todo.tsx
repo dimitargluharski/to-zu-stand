@@ -1,7 +1,13 @@
-export const Todo = (props: any) => {
-  const { message } = props;
+interface TodoProps {
+  id: string;
+  message: string;
+  handleRemoveTodo: (id: string) => void;
+}
+
+export const Todo = ({ id, message, handleRemoveTodo }: TodoProps) => {
+
   return (
-    <p>
+    <p onClick={() => handleRemoveTodo(id)}>
       {message}
     </p>
   )
