@@ -9,6 +9,7 @@ function App() {
   const todos = useStore((state) => state.todos);
   const addTodo = useStore((state) => state.addTodo);
   const removeTodo = useStore((state) => state.removeTodo);
+  const editTodo = useStore((state) => state.editTodo);
 
   const handleAddNewTodo = () => {
     if (todoString === '') return;
@@ -25,6 +26,10 @@ function App() {
     removeTodo(id);
   }
 
+  const handleUpdateTodo = (id: string, message: string) => {
+    editTodo(id, message);
+  }
+
   return (
     <>
       <h1>Zustand Todo App</h1>
@@ -36,7 +41,7 @@ function App() {
       </button>
 
       <div>
-        {todos.length > 0 ? todos.slice().reverse().map((todo) => <Todo id={todo.id} handleRemoveTodo={handleRemoveTodo} key={todo.id} message={todo.message} />) : <p>There are no todos, but you can add one!</p>}
+        {todos.length > 0 ? todos.slice().reverse().map((todo) => <Todo id={todo.id} handleUpdateTodo={handleUpdateTodo} handleRemoveTodo={handleRemoveTodo} key={todo.id} message={todo.message} />) : <p>There are no todos, but you can add one!</p>}
       </div>
 
     </>
