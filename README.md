@@ -4,4 +4,4 @@
 - Vite
 - TypeScript
 - Zustand
-- LESS
+- shadcn/ui
